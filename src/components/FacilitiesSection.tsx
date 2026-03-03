@@ -1,4 +1,4 @@
-import { Accessibility, Ear, Waves, Tennis, ShowerHead, Baby, Smartphone, Heart, Bath } from "lucide-react";
+import { Accessibility, Ear, Waves, CircleDot, ShowerHead, Baby, Smartphone, Heart, Bath } from "lucide-react";
 
 const categories = [
   {
