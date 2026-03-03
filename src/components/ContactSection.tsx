@@ -7,12 +7,37 @@ import { useToast } from "@/hooks/use-toast";
 
 const ContactSection = () => {
   const { toast } = useToast();
-  const [form, setForm] = useState({ name: "", phone: "", message: "" });
+  const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
+  const [submitting, setSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({ title: "Message Sent!", description: "We'll get back to you shortly." });
-    setForm({ name: "", phone: "", message: "" });
+    if (submitting) return;
+    try {
+      setSubmitting(true);
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          phone: form.phone,
+          message: form.message,
+        }),
+      });
+      const data = await res.json().catch(() => null);
+      if (!res.ok) throw new Error(data?.error || `Failed to send (${res.status})`);
+      toast({ title: "Message Sent!", description: "We'll get back to you shortly." });
+      setForm({ name: "", email: "", phone: "", message: "" });
+    } catch (err) {
+      const message = err instanceof Error ? err.message : "Please try again later.";
+      toast({ title: "Failed to send message", description: message, variant: "destructive" });
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -35,6 +60,14 @@ const ContactSection = () => {
               className="bg-background border-border"
             />
             <Input
+              placeholder="Your Email"
+              type="email"
+              value={form.email}
+              onChange={(e) => setForm({ ...form, email: e.target.value })}
+              required
+              className="bg-background border-border"
+            />
+            <Input
               placeholder="Phone Number"
               type="tel"
               value={form.phone}
@@ -50,7 +83,9 @@ const ContactSection = () => {
               rows={5}
               className="bg-background border-border"
             />
-            <Button type="submit" size="lg" className="w-full text-base">Send Message</Button>
+            <Button type="submit" size="lg" className="w-full text-base" disabled={submitting}>
+              {submitting ? "Sending..." : "Send Message"}
+            </Button>
           </form>
 
           {/* Info */}
