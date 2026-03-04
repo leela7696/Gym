@@ -9,9 +9,9 @@ type ScrollingPhotosProps = {
 const defaultImages = [
   "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1600&auto=format&fit=crop",
   "https://images.unsplash.com/photo-1558611848-73f7eb4001a1?q=80&w=1600&auto=format&fit=crop",
-  "public/pexels-leonmart-1552249.jpg",
-  "public/pexels-thelazyartist-2247179.jpg",
-  "public/pexels-sabel-blanco-662810-1480510.jpg",
+  "/pexels-leonmart-1552249.jpg",
+  "/pexels-thelazyartist-2247179.jpg",
+  "/pexels-sabel-blanco-662810-1480510.jpg",
 ];
 
 const ScrollingPhotos = ({ images = defaultImages, speedMs = 30000, className = "" }: ScrollingPhotosProps) => {
