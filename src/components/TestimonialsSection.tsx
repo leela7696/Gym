@@ -4,7 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 const testimonials = [
   {
     name: "Rajesh Kumar",
-    text: "Shripallavi Fitness completely transformed my lifestyle. The trainers are incredibly supportive, the equipment is top-notch, and the environment is welcoming. I've lost 15 kgs in just 4 months!",
+    text: "GYM & Fitness completely transformed my lifestyle. The trainers are incredibly supportive, the equipment is top-notch, and the environment is welcoming. I've lost 15 kgs in just 4 months!",
   },
   {
     name: "Priya Sharma",

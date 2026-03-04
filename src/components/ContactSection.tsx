@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, type FormEvent } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -10,7 +10,7 @@ const ContactSection = () => {
   const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
   const [submitting, setSubmitting] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     if (submitting) return;
     try {
@@ -42,7 +42,7 @@ const ContactSection = () => {
             phone: form.phone,
             message: form.message,
             _replyto: form.email,
-            _subject: "New message from Shripallavi Fitness website",
+            _subject: "New message from GYM & Fitness website",
             _template: "box",
             _captcha: "false",
           }),
@@ -115,18 +115,18 @@ const ContactSection = () => {
 
           {/* Info */}
           <div className="space-y-6">
-            <a href="tel:09888345345" className="flex items-center gap-4 p-4 rounded-lg bg-background border border-border hover:border-primary/50 transition-colors">
+            <a href="tel:9346542665" className="flex items-center gap-4 p-4 rounded-lg bg-background border border-border hover:border-primary/50 transition-colors">
               <Phone size={22} className="text-primary shrink-0" />
               <div>
                 <p className="text-sm text-muted-foreground">Call Us</p>
-                <p className="font-bold">098883 45345</p>
+                <p className="font-bold">9346542665</p>
               </div>
             </a>
             <div className="flex items-start gap-4 p-4 rounded-lg bg-background border border-border">
               <MapPin size={22} className="text-primary shrink-0 mt-0.5" />
               <div>
                 <p className="text-sm text-muted-foreground">Our Location</p>
-                <p className="font-bold text-sm">Beside DRDL Residential Complex, Diamond Point, Icrisat Colony, Bowenpally, Secunderabad, Telangana 500009</p>
+                <p className="font-bold text-sm"> Bowenpally, Secunderabad, Telangana 500009</p>
               </div>
             </div>
             <div className="flex items-center gap-4 p-4 rounded-lg bg-background border border-border">
@@ -142,7 +142,7 @@ const ContactSection = () => {
         {/* Google Map */}
         <div className="max-w-5xl mx-auto rounded-lg overflow-hidden border border-border">
           <iframe
-            title="Shripallavi Fitness and Gym Location"
+            title="GYM & Fitness and Gym Location"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3805.8!2d78.4867!3d17.4712!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sBowenpally%2C+Secunderabad!5e0!3m2!1sen!2sin!4v1600000000000"
             width="100%"
             height="300"

@@ -8,6 +8,7 @@ import TestimonialsSection from "@/components/TestimonialsSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import ScrollingPhotos from "@/components/ScrollingPhotos";
 
 const Index = () => {
   return (
@@ -15,9 +16,12 @@ const Index = () => {
       <Navbar />
       <main>
         <HeroSection />
+        <ScrollingPhotos className="py-8" />
         <AboutSection />
+        <ScrollingPhotos className="py-8 bg-card/50" />
         <ServicesSection />
         <FacilitiesSection />
+        <ScrollingPhotos className="py-8" />
         <PlansSection />
         <TestimonialsSection />
         <ContactSection />
